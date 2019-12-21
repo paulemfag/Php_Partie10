@@ -14,7 +14,7 @@ include 'header.php';
         && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-zéèçàïîêëôöûü])*$/', $_POST['city']) 
         && preg_match(' /^[0-9]{5}$/', $_POST['zipcode']) 
         && preg_match('/^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/', $_POST['mailbox'])
-        && preg_match('/^[0-9]{9}$/', $_POST['phone']) 
+        && preg_match('/^([0]{0,1})[0-9]{9}$/', $_POST['phone']) 
         && preg_match(' /^[0-9]{7}+([a-z|A-Z]{1})$/', $_POST['polenumber'])
         && preg_match('/^[A-Z|a-z_éèçàïîêëôöûü|0-9|_ _-]{25,100}([a-z_-_ ]*)$/', $_POST['superhero']) 
         && preg_match('/^[A-Z|a-z_éèçàïîêëôöûü|0-9|_ _-]{25,100}([a-z_-_ ]*)$/', $_POST['hack']) 
@@ -41,9 +41,9 @@ include 'header.php';
     $hack = $_POST['hack'];
     $experience = $_POST['experience'];
     ?>
-    <p><?= 'Bonjour ' .$gender .$firstname. ' ' .$lastname. ', vous êtes né(e) le ' .$birthdate. ' en ' .$birthplace. ' et vous avez la nationalité ' .$nationality. '.'; ?></p>
+    <p><?= 'Bonjour ' .$gender. ' ' .$firstname. ' ' .$lastname. ', vous êtes né(e) le ' .$birthdate. ' en ' .$birthplace. ' et vous avez la nationalité ' .$nationality. '.'; ?></p>
     <p><?= 'Vous êtes domicilié(e) au ' . $streetnmbr . ' ' . $streetextension . ' rue ' . $street . ', ' . $zipcode . ' ' . $city. '.'; ?></p>
-    <p><?= 'Votre numéro de téléphone est le ' . '+' . $indicative . ' ' . $phone . '.'; ?></p>
+    <p><?= 'Votre numéro de téléphone est le ' . '(+' . $indicative . ') ' . $phone . '.'; ?></p>
     <p><?= 'Votre numéro Pôle emploi est le : ' . $polenumber. '.'; ?></p>
     <?php
         if($grade == 'Sans'){?>
