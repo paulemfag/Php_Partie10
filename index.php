@@ -64,6 +64,7 @@ include 'header.php';
             <div class="form-group">
                 <label for="gender">Civilité :</label>
                 <select name="gender" id="gender">
+                    <option disabled selected value>-- sélectionner votre civilité : --</option>
                     <option value="Monsieur">Monsieur</option>
                     <option value="Madame">Madame</option>
                 </select>
