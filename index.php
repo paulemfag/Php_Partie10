@@ -6,7 +6,7 @@ include 'header.php';
         && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-z_éèçàïîêëôöûü_ _-])*$/', $_POST['lastname']) 
         && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-z_éèçàïîêëôöûü_ _-])*$/', $_POST['firstname']) 
         && isset($_POST['birthdate'])
-        && isset($_POST['birthplace']) 
+        && isset($_POST['birthplace'])
         && isset($_POST['nationality']) 
         && preg_match('/^[0-9]{1,4}+([A-Z|a-z]){0,2}$/', $_POST['streetnmbr']) 
         && preg_match('/^[A-Z|a-z]{0,6}$/', $_POST['streetextension']) 
@@ -83,7 +83,7 @@ include 'header.php';
             <div class="form-group">
                 <label for="birthplace">Pays de naissance : </label>
                 <select id="birthplace" name="birthplace">
-                    <option value="">-- selectionner votre pays --</option>
+                    <option disabled selected value>-- selectionner votre pays --</option>
                     <option value="Afganistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
                     <option value="Algeria">Algeria</option>
@@ -335,7 +335,7 @@ include 'header.php';
             <div class="form-group">
                 <label for="nationality">Nationalité : </label>
                 <select name="nationality">
-                    <option value="">-- selectionner votre nationalité --</option>
+                    <option disabled selected value>-- selectionner votre nationalité --</option>
                     <option value="afghan">Afghan</option>
                     <option value="albanian">Albanian</option>
                     <option value="algerian">Algerian</option>
