@@ -1,23 +1,23 @@
 <?php
 $page = 'TP 1';
 include 'header.php';
-    if ( isset($_POST['city'])  
-        &&   preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-zéèçàïîêëôöûü])*$/', $_POST['city']) 
-        && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-z_éèçàïîêëôöûü_ _-])*$/', $_POST['lastname']) 
-        && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-z_éèçàïîêëôöûü_ _-])*$/', $_POST['firstname']) 
+    if ( isset($_POST['city'])
+        &&   preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-zéèçàïîêëôöûü])*$/', $_POST['city'])
+        && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-z_éèçàïîêëôöûü_ _-])*$/', $_POST['lastname'])
+        && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-z_éèçàïîêëôöûü_ _-])*$/', $_POST['firstname'])
         && isset($_POST['birthdate'])
         && isset($_POST['birthplace'])
-        && isset($_POST['nationality']) 
-        && preg_match('/^[0-9]{1,4}+([A-Z|a-z]){0,2}$/', $_POST['streetnmbr']) 
-        && preg_match('/^[A-Z|a-z]{0,6}$/', $_POST['streetextension']) 
-        && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-zéèçàïîêëôöûü])*$/', $_POST['street']) 
-        && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-zéèçàïîêëôöûü])*$/', $_POST['city']) 
-        && preg_match(' /^[0-9]{5}$/', $_POST['zipcode']) 
+        && isset($_POST['nationality'])
+        && preg_match('/^[0-9]{1,4}+([A-Z|a-z]){0,2}$/', $_POST['streetnmbr'])
+        && preg_match('/^[A-Z|a-z]{0,6}$/', $_POST['streetextension'])
+        && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-zéèçàïîêëôöûü])*$/', $_POST['street'])
+        && preg_match('/^[A-Z|a-zéèçàïîêëôöûü]+([A-Z|a-zéèçàïîêëôöûü])*$/', $_POST['city'])
+        && preg_match('/^[0-9]{5}$/', $_POST['zipcode'])
         && preg_match('/^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/', $_POST['mailbox'])
-        && preg_match('/^([0]{0,1})[0-9]{9}$/', $_POST['phone']) 
-        && preg_match(' /^[0-9]{7}+([a-z|A-Z]{1})$/', $_POST['polenumber'])
-        && preg_match('/^[A-Z|a-z_éèçàïîêëôöûü|0-9|_ _-]{25,100}([a-z_-_ ]*)$/', $_POST['superhero']) 
-        && preg_match('/^[A-Z|a-z_éèçàïîêëôöûü|0-9|_ _-]{25,100}([a-z_-_ ]*)$/', $_POST['hack']) 
+        && preg_match('/^([0]{0,1})[0-9]{9}$/', $_POST['phone'])
+        && preg_match('/^[0-9]{7}+([a-z|A-Z]{1})$/', $_POST['polenumber'])
+        && preg_match('/^[A-Z|a-z_éèçàïîêëôöûü|0-9|_ _-]{25,100}([a-z_-_ ]*)$/', $_POST['superhero'])
+        && preg_match('/^[A-Z|a-z_éèçàïîêëôöûü|0-9|_ _-]{25,100}([a-z_-_ ]*)$/', $_POST['hack'])
         && preg_match('/^[A-Z|a-z_éèçàïîêëôöûü|0-9|_ _-]{25,100}([a-z_-_ ]*)$/', $_POST['experience']) ){
     $gender = $_POST['gender'];
     $lastname = $_POST['lastname'];
@@ -50,7 +50,7 @@ include 'header.php';
         <p><?= 'Votre n\'avez pas de diplôme et vous avez obtenu(e) ' . $palm . ' palme(s).'; ?></p>
         <?php } else { ?>
         <p><?= 'Votre plus haut diplôme obtenu est de type ' . $grade . ' et vous avez obtenu(e) ' . $palm . ' palme.'; ?></p>
-        <?php } 
+        <?php }
         if(!empty($_POST['codecademy'])){ ?>
     <p><?= 'Votre lien codecademy est <a title="codecademy" href="'.$codecademy.'">ici.</a>' ?></p>
         <?php } ?>
@@ -63,7 +63,7 @@ include 'header.php';
         <form method="POST" action="#">
             <div class="form-group">
                 <label for="gender">Civilité :</label>
-                <select name="gender" id="gender">
+                <select name="gender" id="gender" required>
                     <option disabled selected value>-- sélectionner votre civilité : --</option>
                     <option value="Monsieur">Monsieur</option>
                     <option value="Madame">Madame</option>
@@ -71,19 +71,19 @@ include 'header.php';
             </div>
             <div class="form-group">
                 <label for="lastname">Nom : </label>
-                <input  type="text" id="lastname" name="lastname" placeholder="ex : Valjean">
+                <input  type="text" id="lastname" name="lastname" placeholder="ex : Valjean" required>
             </div>
             <div class="form-group">
                 <label for="firstname">Prénom : </label>
-                <input  type="text" id="firstname" name="firstname" placeholder="ex : Jean">
+                <input  type="text" id="firstname" name="firstname" placeholder="ex : Jean" required>
             </div>
             <div class="form-group">
                 <label for="birthdate">Date de naissance : </label>
-                <input  type="date" id="birthdate" name="birthdate" min="01-01-1900" max="31-12-2018">
+                <input  type="date" id="birthdate" name="birthdate" min="01-01-1900" max="31-12-2018" required>
             </div>
             <div class="form-group">
                 <label for="birthplace">Pays de naissance : </label>
-                <select id="birthplace" name="birthplace">
+                <select id="birthplace" name="birthplace" required>
                     <option disabled selected value>-- selectionner votre pays --</option>
                     <option value="Afganistan">Afghanistan</option>
                     <option value="Albania">Albania</option>
@@ -335,7 +335,7 @@ include 'header.php';
             </div>
             <div class="form-group">
                 <label for="nationality">Nationalité : </label>
-                <select name="nationality">
+                <select name="nationality" required>
                     <option disabled selected value>-- selectionner votre nationalité --</option>
                     <option value="afghan">Afghan</option>
                     <option value="albanian">Albanian</option>
@@ -533,29 +533,29 @@ include 'header.php';
             </div>
             <div class="form-group">
                 <label for="streetnmbr">Numéro de rue : </label>
-                <input  type="number" id="streetnmbr" name="streetnmbr" min="1" placeholder="ex : 7411">
+                <input  type="number" id="streetnmbr" name="streetnmbr" min="1" placeholder="ex : 7411" required>
                 <label for="streetextension">Complément d'adresse :</label>
-                <input type="text" name="streetextension" id="streetextension" placeholder="ex : bis, ter, quater,...">
+                <input type="text" name="streetextension" id="streetextension" placeholder="ex : bis, ter, quater,..." required>
             </div>
             <div class="form-group">
                 <label for="street">Rue : </label>
-                <input  type="text" id="street" name="street" placeholder="ex : Lamartine">
+                <input  type="text" id="street" name="street" placeholder="ex : Lamartine" required>
             </div>
             <div class="form-group">
                 <label for="city">Ville : </label>
-                <input  type="text" id="city" name="city" placeholder="ex : Amiens">
+                <input  type="text" id="city" name="city" placeholder="ex : Amiens" required>
             </div>
             <div class="form-group">
                 <label for="zipcode">Code postal : </label>
-                <input  type="text" id="zipcode" name="zipcode" placeholder="ex : 80000">
+                <input  type="text" id="zipcode" name="zipcode" placeholder="ex : 80000" required>
             </div>
             <div class="form-group">
                 <label for="mailbox">Adresse mail : </label>
-                <input  type="mail" id="mailbox" name="mailbox" placeholder="ex : toto@gmail.com">
+                <input  type="mail" id="mailbox" name="mailbox" placeholder="ex : toto@gmail.com" required>
             </div>
             <div class="form-group">
                 <label for="indicative">Indicatif : </label>
-                <select name="indicative" id="indicative">
+                <select name="indicative" id="indicative" required>
                     <option data-countryCode="FR" value="33" selected>France (+33)</option>
                     <option data-countryCode="GB" value="44">UK (+44)</option>
                     <option data-countryCode="US" value="1">USA (+1)</option>
@@ -777,11 +777,11 @@ include 'header.php';
                     </optgroup>
                 </select>
                 <label for="phone">Téléphone : </label>
-                <input  type="text" id="phone" name="phone" placeholder="9 chiffres ex : 608998106">
+                <input  type="text" id="phone" name="phone" placeholder="9 chiffres ex : 608998106" required>
             </div>
             <div class="form-group">
                 <label for="grade">Diplôme : </label>
-                <select name="grade" id="grade">
+                <select name="grade" id="grade" required>
                     <option value="">-- selectionner votre niveau --</option>
                     <option value="Sans">Sans</option>
                     <option value="Bac">Bac</option>
@@ -792,11 +792,11 @@ include 'header.php';
             </div>
             <div class='form-group'>
                 <label for="polenumber">Numéro Pôle Emploi : </label>
-                <input  type="text" id="polenumber" name="polenumber" minlength="8" maxlength="8" placeholder="7 chiffres et 1 lettre">
+                <input  type="text" id="polenumber" name="polenumber" minlength="8" maxlength="8" placeholder="7 chiffres et 1 lettre" required>
             </div>
             <div class='form-group'>
                 <label for="palm">Nombre de palmes : </label>
-                <select name="palm" id="palme">
+                <select name="palm" id="palme" required>
                     <option value="">-- selectionner un nombre de palmes --</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -813,15 +813,15 @@ include 'header.php';
             </div>
             <div class='form-group'>
                 <label for="superhero">Si vous étiez un super héros/une super héroïne, qui seriez-vous et pourquoi ? : </label>
-                <input  type="text" id="superhero" name="superhero" minlength="25" maxlength="100" placeholder="25 à 100 caractères">
+                <input  type="text" id="superhero" name="superhero" minlength="25" maxlength="100" placeholder="25 à 100 caractères" required>
             </div>
             <div class='form-group'>
                 <label for="hack">Racontez-nous un de vos "hacks" (pas forcément technique ou informatique) : </label>
-                <input  type="text" id="hack" name="hack" minlength="25" maxlength="100" placeholder="25 à 100 caractères">
+                <input  type="text" id="hack" name="hack" minlength="25" maxlength="100" placeholder="25 à 100 caractères" required>
             </div>
             <div class='form-group'>
                 <label for="experience">Avez vous déjà eu une expérience avec la programmation et/ou l'informatique avant de remplir ce formulaire ? :</label>
-                <input  type="text" id="experience" name="experience" minlength="25" maxlength="100" placeholder="25 à 100 caractères">
+                <input  type="text" id="experience" name="experience" minlength="25" maxlength="100" placeholder="25 à 100 caractères" required>
             </div>
             <input type="submit" name="submit" class="btn btn-primary col-12 mb-2">
         </form>
