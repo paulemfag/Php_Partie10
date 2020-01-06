@@ -18,11 +18,11 @@ if (isset($_POST['gender'])
             </div>
             <div class="form-group">
                 <label for="lastname">Nom : </label>
-                <input  type="text" id="lastname" name="lastname" value="<?= $_POST['lastname'] ?>" required>
+                <input  type="text" id="lastname" name="lastname" placeholder="ex : Valjean" value="<?= $_POST['lastname'] ?>" required>
             </div>
             <div class="form-group">
                 <label for="firstname">Prénom : </label>
-                <input  type="text" id="firstname" name="firstname" value="<?= $_POST['firstname'] ?>" required>
+                <input  type="text" id="firstname" name="firstname" placeholder="ex : Jean" value="<?= $_POST['firstname'] ?>" required>
             </div>
             <div class="form-group">
                 <label for="age">Age :</label>
@@ -30,7 +30,7 @@ if (isset($_POST['gender'])
             </div>
             <div class="form-group">
                 <label for="society">Société :</label>
-                <input type="text" name="society" id="society" value="<?= $_POST['society'] ?>" value>
+                <input type="text" name="society" id="society" value="<?= $_POST['society'] ?>" required>
             </div>
             <input type="submit" name="submit" class="btn btn-primary col-12 mb-2">
         </form>
